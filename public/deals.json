@@ -1,0 +1,76 @@
+{
+    "deals": [
+        {
+            "id": 1,
+            "destination":  "Antalya",
+            "title": "Luxury All-Inclusive Antalya Getaway with Flights",
+            "nights": 7,
+            "price": "499",
+            "currency": "£",
+            "priceCriteria": "per person",
+            "included": [
+                 "Return Flights From Various UK Airports",
+                 "All-Inclusive Package",
+                 "Luxury beachfront hotel",
+                 "Outdoor pool and water slides",
+                 "Ottoman and seafood cuisine options"
+            ]
+         },
+         {
+            "id": 2,
+            "destination":  "Krakow City",
+            "title": "Krakow City Break with Flights",
+            "nights": 2,
+            "price": "499",
+            "currency": "£",
+            "priceCriteria": "per person",
+            "included": [
+                "Return Flights From Various UK Airports",
+                "2 Nights Stay at a 4* Property with Room Only Board Basis",
+                "Optional Auschwitz Tour (starting at £99 per person)"
+            ]
+         },
+         {
+            "id": 3,
+            "destination":  "Hurghada, Egypt",
+            "title": "Hurghada with Nile Cruise & Flights Egypt Holiday",
+            "nights": 14,
+            "price": "799",
+            "currency": "£",
+            "priceCriteria": "per person",
+            "included": [
+                "Return Flights From Various UK Airports",
+                "5* 7 Nights All-Inclusive Board Basis in Hotel",
+                "5* 7 Nights Full Board on Nile Cruise",
+                "All-In Resort Transfers Included",
+                "Add Return Baggage from £70 per person",
+                "Optional Full Excursions (starting at £189 per person) or Half Excursions (starting at £169 per person)",
+                "Optional Add Cairo with Excursions from £899 per person"
+            ]
+         },
+         {
+            "id": 4,
+            "destination":  "Costa Brava, Spain",
+            "title": "Beach Destination Costa Brava Spain with Flights & Hotel (Room Only)",
+            "nights": 2,
+            "price": "99",
+            "currency": "£",
+            "priceCriteria": "per person",
+            "included": [
+                "Return Flights From Various UK Airports",
+                "2 Nights Stay at a Beach Hotel in Costa Brava, Spain (Room Only)"
+            ]
+         }
+
+    ]
+}
+
+
+
+
+
+
+
+
+
+
