@@ -136,7 +136,7 @@ const PackageBookingForm = () => {
                         <div className="font-sans text-dark-1 text-2md font-semibold flex justify-between">Total : <span>$450</span></div>
                     </div>
                     <button aria-label="check button" className="capitalize w-full text-center underline duration-150 mt-4 text-dark-1 font-medium flex items-center justify-center hover:text-primary-1">check availability </button> */}
-                    <Link href="/booking" className="btn_primary__v1 !w-full justify-center mt-5">
+                    <Link href="/contact" className="btn_primary__v1 !w-full justify-center mt-5">
                         Enquire Now
                         <svg width={20} height={20} viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M7.42505 16.5999L12.8584 11.1666C13.5 10.5249 13.5 9.4749 12.8584 8.83324L7.42505 3.3999" stroke="currentColor" strokeWidth="1.5" strokeMiterlimit={10} strokeLinecap="round" strokeLinejoin="round" />
