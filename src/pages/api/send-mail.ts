@@ -15,7 +15,7 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse,
 ) {
-  let ADMIN_MAIL = "parjanyapatel130@gmail.com";
+  let ADMIN_MAIL = "admin@travelzeeworld.com";
 
   if (req.method !== "POST") {
     return res.status(405).json({ message: "Method Not Allowed" });
@@ -29,7 +29,7 @@ export default async function handler(
   let mailOptions;
   mailOptions = {
     from: `"Notifications" <admin@mivs.in>`,
-    to: "mr2819210@gmail.com",
+    to: "admin@travelzeeworld.com",
     subject: `New subscriber on website - ${name}`,
     text: `${name} wanted to contact you.
                 Details:

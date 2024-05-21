@@ -26,7 +26,7 @@ export default async function handler(
 
   const mailOptions = {
     from: `"Notifications" <admin@mivs.in>`,
-    to: "mr2819210@gmail.com",
+    to: "admin@travelzeeworld.com",
     subject: `New subscriber on website - ${name}`,
     text: `${name} just subscribed.`,
     html: `<h1>${name} just subscribed.</h1>`,
