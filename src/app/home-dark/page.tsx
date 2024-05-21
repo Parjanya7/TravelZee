@@ -33,7 +33,6 @@ const HomeDark = () => {
         <HeroTwo />
         <AboutTwo />
         <DestinationOne />
-        <PackageTwo />
         <VideoBanner />
         <TestimonialTwo />
         <BlogTwo />
