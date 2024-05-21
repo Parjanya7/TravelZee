@@ -1,18 +1,17 @@
-"use client"
-import dynamic from 'next/dynamic';
+"use client";
+import dynamic from "next/dynamic";
 
-import PackageDataTwo from '@/constant/HomeDark/PackageDataTwo';
-import PackageDetailsSlider from '@/components/package/PackageDetailsSlider';
-import PackageDetailsData from '@/constant/Package/PackageDetailsData';
-import PackageBookingForm from '@/components/package/PackageBookingForm';
-import PackageGallary from '@/components/package/PackageGallary';
-import { Metadata } from 'next';
-import { useSearchParams } from 'next/navigation'
+import PackageDataTwo from "@/constant/HomeDark/PackageDataTwo";
+import PackageDetailsSlider from "@/components/package/PackageDetailsSlider";
+import PackageDetailsData from "@/constant/Package/PackageDetailsData";
+import PackageBookingForm from "@/components/package/PackageBookingForm";
+import PackageGallary from "@/components/package/PackageGallary";
+import { Metadata } from "next";
+import { useSearchParams } from "next/navigation";
 
-const DynamicMap = dynamic(() => import('@/components/package/PackageMap'), {
-  ssr: false
+const DynamicMap = dynamic(() => import("@/components/package/PackageMap"), {
+  ssr: false,
 });
-
 
 // export const metadata: Metadata = {
 //   title: 'Package Details | Arid - Travel & Tourism HTML/Tailwind CSS Template',
@@ -21,21 +20,18 @@ const DynamicMap = dynamic(() => import('@/components/package/PackageMap'), {
 // }
 
 const PackageDetails = () => {
-  const searchParams = useSearchParams()
+  const searchParams = useSearchParams();
 
-  const id = searchParams?.get('id');
+  const id = searchParams?.get("id");
   console.log("Id:", id);
 
-  const deal = PackageDataTwo.packages.find(obj => obj.id === id);
+  const deal = PackageDataTwo.packages.find((obj) => obj.id === id);
   console.log(deal);
   return (
     <>
       <div className="bg-gradient-to-t to-[#FFF1EC] from-white">
-
         {/* Package Details Slider */}
-        <PackageDetailsSlider
-          slider_images={deal?.slider_images}
-        />
+        <PackageDetailsSlider slider_images={deal?.slider_images} />
         <div className="container">
           <div className="flex flex-wrap justify-between pb-8 pt-6 mb-8 border-b border-stock-1">
             <div className="pt-2">
@@ -45,19 +41,35 @@ const PackageDetails = () => {
               </h3>
               <div className="flex items-center mt-2">
                 <ul className="flex lg:gap-3 gap-2 text-primary-1 mr-3 text-sm">
-                  <li><i className="bi bi-star-fill" /></li>
-                  <li><i className="bi bi-star-fill" /></li>
-                  <li><i className="bi bi-star-fill" /></li>
-                  <li><i className="bi bi-star-fill" /></li>
-                  <li><i className="bi bi-star-half" /></li>
+                  <li>
+                    <i className="bi bi-star-fill" />
+                  </li>
+                  <li>
+                    <i className="bi bi-star-fill" />
+                  </li>
+                  <li>
+                    <i className="bi bi-star-fill" />
+                  </li>
+                  <li>
+                    <i className="bi bi-star-fill" />
+                  </li>
+                  <li>
+                    <i className="bi bi-star-half" />
+                  </li>
                 </ul>
-                <span className="text-primary-1 lg:text-2md text-md">(20 review)</span>
+                <span className="text-primary-1 lg:text-2md text-md">
+                  (20 review)
+                </span>
               </div>
             </div>
             <div className="pt-2">
-              <h2 className="font-sans lg:text-[45px] leading-1.2 md:text-xl text-lg font-semibold">{deal?.currency}{deal?.price}
+              <h2 className="font-sans lg:text-[45px] leading-1.2 md:text-xl text-lg font-semibold">
+                {deal?.currency}
+                {deal?.price}
               </h2>
-              <div className="text-md font-normal ml-1">{deal?.priceCriteria}</div>
+              <div className="text-md font-normal ml-1">
+                {deal?.priceCriteria}
+              </div>
             </div>
           </div>
           <div className="grid grid-cols-12 gap-base">
@@ -66,10 +78,7 @@ const PackageDetails = () => {
                 <h5 className="lg:text-2md text-md text-dark-2 font-medium leading-[1.5] font-sans mb-6">
                   {deal?.disc}
                 </h5>
-                <p>
-
-                  {deal?.about}
-                </p>
+                <p>{deal?.about}</p>
                 {/* <ul className="pack__list">
                   <li><i className="bi bi-clock" /> 4 Days / 5 Night</li>
                   <li> <i className="bi bi-person" />Max People : 10</li>
@@ -179,22 +188,25 @@ const PackageDetails = () => {
                     pharetra, vitae viverra mauris condimentum. Sed ullamcorper dignissim enim, vel egestas
                     lacus tincidunt ac. Duis id interdum ex, eu accumsan massa. Fusce vel nibh diam.</p> */}
                   <div>
-                    {deal?.included.map((data, key) => <div className="flex single__count">
-                      <div className="shrink-0 day__count">
-                        <div className="lg:w-[52px] lg:h-[52px] w-10 h-10 rounded-full border border-primary-1 flex justify-center items-center lg:text-lg md:2md text-md font-semibold text-primary-1 bg-white">
-                          0{key + 1}</div>
-                      </div>
-                      <div className="lg:ml-[18px] ml-4 pb-8">
-                        <h5 className="lg:text-[22px] text-md font-semibold text-dark-1 !lg:mt-[10px] !mt-2">
-                          {data}
-                        </h5>
-                        {/* <p>Qui ad idque soluta deterruisset, nec sale pertinax mandamus et. Eu mei
+                    {deal?.included.map((data, key) => (
+                      <div className="flex single__count" key={key}>
+                        <div className="shrink-0 day__count">
+                          <div className="lg:w-[52px] lg:h-[52px] w-10 h-10 rounded-full border border-primary-1 flex justify-center items-center lg:text-lg md:2md text-md font-semibold text-primary-1 bg-white">
+                            0{key + 1}
+                          </div>
+                        </div>
+                        <div className="lg:ml-[18px] ml-4 pb-8">
+                          <h5 className="lg:text-[22px] text-md font-semibold text-dark-1 !lg:mt-[10px] !mt-2">
+                            {data}
+                          </h5>
+                          {/* <p>Qui ad idque soluta deterruisset, nec sale pertinax mandamus et. Eu mei
                           soluta scriptorem dissentiet, sensibus cotidieque. Ne per malorum vivendum
                           principes, congue imperdiet cu vel. Sit cu stet autem eligendi, eros
                           reprimique mel id, no pri tation altera. At soluta fierent laboramus eum.
                         </p> */}
+                        </div>
                       </div>
-                    </div>)}
+                    ))}
 
                     {/* <div className="flex single__count">
                       <div className="shrink-0 day__count">
@@ -391,7 +403,7 @@ const PackageDetails = () => {
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default PackageDetails
+export default PackageDetails;

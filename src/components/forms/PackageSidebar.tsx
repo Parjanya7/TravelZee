@@ -1,21 +1,19 @@
-'use client'
+"use client";
 
-import Slider from 'rc-slider';
-import 'rc-slider/assets/index.css';
+import Slider from "rc-slider";
+import "rc-slider/assets/index.css";
 import Link from "next/link";
-import Separator from '../ui/Separator';
-import { useState } from 'react';
+import Separator from "../ui/Separator";
+import { useState } from "react";
 
 function log(value: any) {
   console.log(value); //eslint-disable-line
 }
 
-
 const PackageSidebarFilter = () => {
-
   const [sliderValue, setSliderValue] = useState([20, 60]);
 
-  function handleChange(value : any) {
+  function handleChange(value: any) {
     setSliderValue(value);
   }
 
@@ -25,7 +23,9 @@ const PackageSidebarFilter = () => {
         <h4 className="text-lg font-semibold text-dark-1">Filter by :</h4>
       </div>
       <aside>
-        <h5 className="font-sans lg:text-md text-base pb-2 font-semibold text-dark-1">Filter Price: </h5>
+        <h5 className="font-sans lg:text-md text-base pb-2 font-semibold text-dark-1">
+          Filter Price:{" "}
+        </h5>
         <Slider
           range
           allowCross={false}
@@ -33,16 +33,19 @@ const PackageSidebarFilter = () => {
           draggableTrack
           onChange={handleChange}
         />
-        
 
         <div className="flex text-dark-2 lg:text-base textsm pt-4 items-center">
-  Pricing Range :&nbsp; <span className='text-dark-1 font-semibold'>${sliderValue[0]} - ${sliderValue[1]}</span>
-</div>
-
+          Pricing Range :&nbsp;{" "}
+          <span className="text-dark-1 font-semibold">
+            ${sliderValue[0]} - ${sliderValue[1]}
+          </span>
+        </div>
       </aside>
       <Separator />
       <aside>
-        <h5 className="font-sans lg:text-md text-base pb-2 font-semibold text-dark-1">Categories</h5>
+        <h5 className="font-sans lg:text-md text-base pb-2 font-semibold text-dark-1">
+          Categories
+        </h5>
         <ul className="pt-4">
           <li className="pt-3 first:pt-0">
             <div className="custom-checkbox">
@@ -84,7 +87,9 @@ const PackageSidebarFilter = () => {
       </aside>
       <Separator />
       <aside>
-        <h5 className="font-sans lg:text-md text-base pb-2 font-semibold text-dark-1">Destinations</h5>
+        <h5 className="font-sans lg:text-md text-base pb-2 font-semibold text-dark-1">
+          Destinations
+        </h5>
         <ul className="pt-4">
           <li className="pt-3 first:pt-0">
             <div className="custom-checkbox">
@@ -167,7 +172,6 @@ const PackageSidebarFilter = () => {
             </div>
           </li>
         </ul>
-
       </aside>
       <aside className="widget widget_blogs lg:mt-[50px] mt-10">
         <div className="pb-[10px] mb-8 border-b border-dark-1 border-opacity-10">
@@ -175,70 +179,117 @@ const PackageSidebarFilter = () => {
         </div>
         <ul>
           <li className="flex items-center group mt-6 first:mt-0">
-            <Link href="/package-details" className="shrink-0 w-20 mr-[15px] overflow-hidden">
-              <img src="./assets/images/blog/ts-1.webp" alt="blogs" className="w-full group-hover:scale-105 duration-200" />
+            <Link
+              href="/package-details"
+              className="shrink-0 w-20 mr-[15px] overflow-hidden"
+            >
+              <img
+                src="./assets/images/blog/ts-1.webp"
+                alt="blogs"
+                className="w-full group-hover:scale-105 duration-200"
+              />
             </Link>
             <div className="grow">
               <ul className="text-sm text-orange-500">
-                <li className="mr-[2px] last:mr-0 inline-block"><i className="bi bi-star-fill" /></li>
-                <li className="mr-[2px] last:mr-0 inline-block"><i className="bi bi-star-fill" /></li>
-                <li className="mr-[2px] last:mr-0 inline-block"><i className="bi bi-star-fill" /></li>
-                <li className="mr-[2px] last:mr-0 inline-block"><i className="bi bi-star-fill" /></li>
-                <li className="mr-[2px] last:mr-0 inline-block"><i className="bi bi-star-half" /></li>
+                <li className="mr-[2px] last:mr-0 inline-block">
+                  <i className="bi bi-star-fill" />
+                </li>
+                <li className="mr-[2px] last:mr-0 inline-block">
+                  <i className="bi bi-star-fill" />
+                </li>
+                <li className="mr-[2px] last:mr-0 inline-block">
+                  <i className="bi bi-star-fill" />
+                </li>
+                <li className="mr-[2px] last:mr-0 inline-block">
+                  <i className="bi bi-star-fill" />
+                </li>
+                <li className="mr-[2px] last:mr-0 inline-block">
+                  <i className="bi bi-star-half" />
+                </li>
               </ul>
               <h5 className="lg:text-md mt-1 text-base font-semibold leading-[1.64] group-hover:text-primary-1 duration-200 fixed-title">
                 <Link href="/package-details">The Great Wall, Chaina</Link>
               </h5>
               <div className="mt-[5px] text-dark-2">
-                <span>
-                  Form
-                </span>
+                <span>Form</span>
                 <span className="text-primary-1 font-medium">$140.00</span>
               </div>
             </div>
           </li>
           <li className="flex items-center group mt-6 first:mt-0">
-            <Link href="/package-details" className="shrink-0 w-20 mr-[15px] overflow-hidden">
-              <img src="./assets/images/blog/ts-2.webp" alt="blogs" className="w-full group-hover:scale-105 duration-200" />
+            <Link
+              href="/package-details"
+              className="shrink-0 w-20 mr-[15px] overflow-hidden"
+            >
+              <img
+                src="./assets/images/blog/ts-2.webp"
+                alt="blogs"
+                className="w-full group-hover:scale-105 duration-200"
+              />
             </Link>
             <div className="grow">
               <ul className="text-sm text-orange-500">
-                <li className="mr-[2px] last:mr-0 inline-block"><i className="bi bi-star-fill" /></li>
-                <li className="mr-[2px] last:mr-0 inline-block"><i className="bi bi-star-fill" /></li>
-                <li className="mr-[2px] last:mr-0 inline-block"><i className="bi bi-star-fill" /></li>
-                <li className="mr-[2px] last:mr-0 inline-block"><i className="bi bi-star-fill" /></li>
-                <li className="mr-[2px] last:mr-0 inline-block"><i className="bi bi-star-half" /></li>
+                <li className="mr-[2px] last:mr-0 inline-block">
+                  <i className="bi bi-star-fill" />
+                </li>
+                <li className="mr-[2px] last:mr-0 inline-block">
+                  <i className="bi bi-star-fill" />
+                </li>
+                <li className="mr-[2px] last:mr-0 inline-block">
+                  <i className="bi bi-star-fill" />
+                </li>
+                <li className="mr-[2px] last:mr-0 inline-block">
+                  <i className="bi bi-star-fill" />
+                </li>
+                <li className="mr-[2px] last:mr-0 inline-block">
+                  <i className="bi bi-star-half" />
+                </li>
               </ul>
               <h5 className="lg:text-md mt-1 text-base font-semibold leading-[1.64] group-hover:text-primary-1 duration-200 fixed-title">
-                <Link href="/package-details">Longest Sea Beach, Cox's Bazar</Link>
+                <Link href="/package-details">
+                  Longest Sea Beach, Cox&apos;s Bazar
+                </Link>
               </h5>
               <div className="mt-[5px] text-dark-2">
-                <span>
-                  Form
-                </span>
+                <span>Form</span>
                 <span className="text-primary-1 font-medium">$140.00</span>
               </div>
             </div>
           </li>
           <li className="flex items-center group mt-6 first:mt-0">
-            <Link href="/package-details" className="shrink-0 w-20 mr-[15px] overflow-hidden">
-              <img src="./assets/images/blog/ts-3.webp" alt="blogs" className="w-full group-hover:scale-105 duration-200" />
+            <Link
+              href="/package-details"
+              className="shrink-0 w-20 mr-[15px] overflow-hidden"
+            >
+              <img
+                src="./assets/images/blog/ts-3.webp"
+                alt="blogs"
+                className="w-full group-hover:scale-105 duration-200"
+              />
             </Link>
             <div className="grow">
               <ul className="text-[13px] text-orange-500">
-                <li className="mr-[2px] last:mr-0 inline-block"><i className="bi bi-star-fill" /></li>
-                <li className="mr-[2px] last:mr-0 inline-block"><i className="bi bi-star-fill" /></li>
-                <li className="mr-[2px] last:mr-0 inline-block"><i className="bi bi-star-fill" /></li>
-                <li className="mr-[2px] last:mr-0 inline-block"><i className="bi bi-star-fill" /></li>
-                <li className="mr-[2px] last:mr-0 inline-block"><i className="bi bi-star-half" /></li>
+                <li className="mr-[2px] last:mr-0 inline-block">
+                  <i className="bi bi-star-fill" />
+                </li>
+                <li className="mr-[2px] last:mr-0 inline-block">
+                  <i className="bi bi-star-fill" />
+                </li>
+                <li className="mr-[2px] last:mr-0 inline-block">
+                  <i className="bi bi-star-fill" />
+                </li>
+                <li className="mr-[2px] last:mr-0 inline-block">
+                  <i className="bi bi-star-fill" />
+                </li>
+                <li className="mr-[2px] last:mr-0 inline-block">
+                  <i className="bi bi-star-half" />
+                </li>
               </ul>
               <h5 className="lg:text-md mt-[3px] text-base font-semibold leading-[1.64] group-hover:text-primary-1 duration-200 fixed-title">
                 <Link href="/package-details">Long Trail Mountain, Napal</Link>
               </h5>
               <div className="mt-[5px] text-dark-2">
-                <span>
-                  Form
-                </span>
+                <span>Form</span>
                 <span className="text-primary-1 font-medium">$140.00</span>
               </div>
             </div>
@@ -246,7 +297,7 @@ const PackageSidebarFilter = () => {
         </ul>
       </aside>
     </>
-  )
-}
+  );
+};
 
 export default PackageSidebarFilter;

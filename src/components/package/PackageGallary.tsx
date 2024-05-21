@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import { useState } from "react";
 
 import PhotoAlbum from "react-photo-album";
@@ -11,7 +11,6 @@ import Slideshow from "yet-another-react-lightbox/plugins/slideshow";
 import Thumbnails from "yet-another-react-lightbox/plugins/thumbnails";
 import Zoom from "yet-another-react-lightbox/plugins/zoom";
 import "yet-another-react-lightbox/plugins/thumbnails.css";
-
 
 const photos = [
   {
@@ -39,7 +38,7 @@ const photos = [
     width: 261,
     height: 353,
   },
-  
+
   {
     src: "/assets/images/gallary/g8.webp",
     width: 261,
@@ -60,11 +59,9 @@ const photos = [
     width: 261,
     height: 218,
   },
-  
 ];
 
 const PackageGallary = () => {
-
   const [index, setIndex] = useState(-1);
 
   return (
@@ -74,7 +71,8 @@ const PackageGallary = () => {
         layout="masonry"
         columns={3}
         targetRowHeight={150}
-        onClick={({ index }) => setIndex(index)} />
+        onClick={({ index }) => setIndex(index)}
+      />
 
       <Lightbox
         slides={photos}
@@ -85,7 +83,7 @@ const PackageGallary = () => {
         plugins={[Fullscreen, Slideshow, Thumbnails, Zoom]}
       />
     </>
-  )
-}
+  );
+};
 
-export default PackageGallary
+export default PackageGallary;
