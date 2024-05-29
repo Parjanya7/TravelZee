@@ -49,7 +49,7 @@ const FooterOne = () => {
     };
     try {
       const response = await axios.post("/api/send-mail", reqBody);
-      console.log("Data posted successfully:", response.data);
+      alert("Thank You for Subscribing!");
       setFormData({
         name: "",
         phoneNumber: "",
@@ -251,7 +251,7 @@ const FooterOne = () => {
                 {/* <li><Link href="/about" className="footer-nav-link-v2">Payments</Link></li> */}
                 {/* <li><Link href="/about" className="footer-nav-link-v2">Egypt</Link></li> */}
                 <li>
-                  <Link href="/contact" className="footer-nav-link-v2">
+                  <Link href="/privacy" className="footer-nav-link-v2">
                     Privacy Policy
                   </Link>
                 </li>
@@ -374,7 +374,7 @@ const FooterOne = () => {
           <BackToTop />
           <p className="text-orange-400">{FooterDataOne.copyrightText}.</p>
           <p>
-            <Link href="/contact" className="hover:text-primary-1 duration-200">
+            <Link href="/privacy" className="hover:text-primary-1 duration-200">
               Privacy Policy
             </Link>{" "}
             |{" "}

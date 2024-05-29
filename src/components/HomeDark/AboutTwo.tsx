@@ -18,7 +18,7 @@ const AboutTwo = () => {
               data-wow-delay="0.2s"
             >
               <img
-                src="./assets/images/about/about2-1.webp"
+                src="./assets/images/hero/sea.webp"
                 alt="about-image"
               />
             </div>

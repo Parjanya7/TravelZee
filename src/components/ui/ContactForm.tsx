@@ -45,7 +45,7 @@ const ContactForm = () => {
     };
     try {
       const response = await axios.post("/api/send-mail", reqBody);
-      console.log("Data posted successfully:", response.data);
+      alert("We have recieved your inquiry. We will get in touch with you shortly!");
       setFormData({
         name: "",
         phoneNumber: "",
@@ -62,7 +62,7 @@ const ContactForm = () => {
 
   return (
     <div className="max-w-[870px] mx-auto">
-      <form action="#">
+      <form>
         <div className="grid grid-cols-2 gap-base">
           <div className="lg:col-span-1 col-span-2">
             <input

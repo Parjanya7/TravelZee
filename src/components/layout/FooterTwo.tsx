@@ -165,7 +165,7 @@ const FooterTwo = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/about" className="footer-nav-link-v2">
+                  <Link href="/privacy" className="footer-nav-link-v2">
                     Privacy Policy
                   </Link>
                 </li>

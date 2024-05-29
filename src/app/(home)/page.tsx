@@ -61,13 +61,13 @@ const HomeDark = () => {
     };
     try {
       const response = await axios.post("/api/send-mail", reqBody);
-      console.log("Data posted successfully:", response.data);
       setFormData({
         name: "",
         phoneNumber: "",
         email: "",
       });
       // Optionally clear form or handle success
+      alert("Thank You for Subscribing!");
       setShowModal(false);
       handleRedirect();
     } catch (error) {

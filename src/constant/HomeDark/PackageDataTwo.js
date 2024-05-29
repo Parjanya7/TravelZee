@@ -1,5 +1,5 @@
 const PackageDataTwo = {
-  title: "Find Your Desire Destination",
+  title: "Find Your Desired Destination",
   sub_title: "Popular Packages",
   packages: [
     // {
