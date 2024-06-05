@@ -1,21 +1,27 @@
 import React, { useState, ChangeEvent, FormEvent } from "react";
 import axios from "axios";
+import { ToastContainer, toast, Bounce } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 type FormData = {
   name: string;
   phoneNumber: string;
   email: string;
+  text: string;
 };
 const ContactForm = () => {
-  const [text, setText] = React.useState<String>("");
+  //  const [text, setText] = React.useState<String>("");
   const [formData, setFormData] = React.useState<FormData>({
     name: "",
     phoneNumber: "",
     email: "",
+    text: "",
   });
 
   // Function to handle changes in input fields
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (
+    e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>,
+  ) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
@@ -23,36 +29,57 @@ const ContactForm = () => {
   };
 
   // Function to handle form submission
-  const handleSubmit = async () => {
-    // e.preventDefault(); // Prevents the default form submit action
+  const handleSubmit = async (e: any) => {
+    e.preventDefault(); // Prevents the default form submit action
 
     // Check if any field is empty
     if (
       !formData.name.trim() ||
       !formData.phoneNumber.trim() ||
       !formData.email.trim() ||
-      !text.trim()
+      !formData.text.trim()
     ) {
-      alert("Please fill in all fields.");
+      toast.error("Please provide us all the details!", {
+        position: "bottom-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+        transition: Bounce,
+      });
       return;
     }
     let reqBody = {
       name: formData.name,
       email: formData.email,
       phone: formData.phoneNumber,
-      message: text,
+      message: formData.text,
       task: "CONTACTUS",
     };
     try {
       const response = await axios.post("/api/send-mail", reqBody);
-      alert("We have recieved your inquiry. We will get in touch with you shortly!");
+      toast.success("Thank You! We will get in touch with you soon!", {
+        position: "bottom-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+        transition: Bounce,
+      });
       setFormData({
         name: "",
         phoneNumber: "",
         email: "",
+        text: "",
       });
-
-      setText("");
+      console.log("execs");
+      console.log("execs");
       // Optionally clear form or handle success
     } catch (error) {
       console.error("Error posting data:", error);
@@ -62,6 +89,19 @@ const ContactForm = () => {
 
   return (
     <div className="max-w-[870px] mx-auto">
+      <ToastContainer
+        position="bottom-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+        transition={Bounce}
+      />
       <form>
         <div className="grid grid-cols-2 gap-base">
           <div className="lg:col-span-1 col-span-2">
@@ -96,12 +136,13 @@ const ContactForm = () => {
           </div>
           <div className="col-span-2">
             <textarea
-              onChange={(e) => setText(e.target.value)}
+              name="text"
+              onChange={handleChange}
+              value={formData.text}
               cols={30}
               rows={6}
               className="input_style__primary"
               placeholder="Your Message..."
-              defaultValue={""}
             />
           </div>
           <div className="col-span-2">
@@ -109,7 +150,7 @@ const ContactForm = () => {
               aria-label="contact submit"
               type="submit"
               className="btn_primary__v1"
-              onClick={handleSubmit}
+              onClick={(e) => handleSubmit(e)}
             >
               Send
               <i className="bi bi-chevron-right" />

@@ -102,7 +102,8 @@ const Contact = () => {
                         href="mailto:info@supportcompany.com"
                         className="hover:text-primary-1 duration-200"
                       >
-                        4517 Washington Ave. Manchester, Kentucky 39495
+                        B603 Sumeru heights Vanivad circle, Nadiad, Gujarat,
+                        India 387001
                       </a>
                     </li>
                   </ul>

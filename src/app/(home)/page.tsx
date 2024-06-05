@@ -9,6 +9,8 @@ import { useRouter } from "next/navigation";
 import React, { ChangeEvent, FormEvent } from "react";
 import axios from "axios";
 import useModalStore from "@/store/modal-items-store";
+import { ToastContainer, toast, Bounce } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 // export const metadata: Metadata = {
 //   title: 'Home Dark | Arid - Travel & Tourism HTML/Tailwind CSS Template',
@@ -50,7 +52,17 @@ const HomeDark = () => {
       !formData.phoneNumber.trim() ||
       !formData.email.trim()
     ) {
-      alert("Please fill in all fields.");
+      toast.error("Please provide us all the details!", {
+        position: "bottom-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+        transition: Bounce,
+      });
       return;
     }
     let reqBody = {
@@ -67,9 +79,21 @@ const HomeDark = () => {
         email: "",
       });
       // Optionally clear form or handle success
-      alert("Thank You for Subscribing!");
+      toast.success("Thank You for subscribing with us!", {
+        position: "bottom-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+        transition: Bounce,
+      });
       setShowModal(false);
-      handleRedirect();
+      setTimeout(() => {
+        handleRedirect();
+      }, 1500);
     } catch (error) {
       console.error("Error posting data:", error);
       // Optionally handle error
@@ -223,7 +247,19 @@ const HomeDark = () => {
           </div>
         </div>
       )}
-
+      <ToastContainer
+        position="bottom-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+        transition={Bounce}
+      />
       <>
         <HeroTwo />
         <AboutTwo />

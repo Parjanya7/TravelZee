@@ -1,4 +1,4 @@
-import PrivacyPolicy from "@/components/HomeOne/PrivacyPolicy"
+import PrivacyPolicy from "@/components/HomeOne/PrivacyPolicy";
 import Breadcrumb from "@/components/layout/Breadcrumb";
 import { Metadata } from "next";
 

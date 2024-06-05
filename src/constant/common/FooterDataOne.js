@@ -11,6 +11,6 @@ const FooterDataOne = {
   copyrightText: "© TRAVELZEE 2024 | All rights reserved.",
   phone: "+44 1234 567890",
   email: "admin@travelzeeworld.com",
-  address: "3891 Ranchview Dr. Richardson, California 62639",
+  address: "B603 Sumeru heights Vanivad circle, Nadiad, Gujarat, India 387001",
 };
 export default FooterDataOne;

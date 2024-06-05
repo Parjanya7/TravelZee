@@ -5,6 +5,8 @@ import Image from "next/image";
 import BackToTop from "./ui/BackToTop";
 import React, { useState, ChangeEvent, FormEvent } from "react";
 import axios from "axios";
+import { ToastContainer, toast, Bounce } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 type FormData = {
   name: string;
@@ -38,7 +40,17 @@ const FooterOne = () => {
       !formData.phoneNumber.trim() ||
       !formData.email.trim()
     ) {
-      alert("Please fill in all fields.");
+      toast.error("Please provide us all the details!", {
+        position: "bottom-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+        transition: Bounce,
+      });
       return;
     }
     let reqBody = {
@@ -49,7 +61,18 @@ const FooterOne = () => {
     };
     try {
       const response = await axios.post("/api/send-mail", reqBody);
-      alert("Thank You for Subscribing!");
+      // Optionally clear form or handle success
+      toast.success("Thank You for subscribing with us!", {
+        position: "bottom-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+        transition: Bounce,
+      });
       setFormData({
         name: "",
         phoneNumber: "",
@@ -69,6 +92,20 @@ const FooterOne = () => {
         background: `linear-gradient( rgba(8, 8, 11, .8) 100%, rgba(8, 8, 11, .8)100%), url("${FooterDataOne.bgImg}")`,
       }}
     >
+      {" "}
+      <ToastContainer
+        position="bottom-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+        transition={Bounce}
+      />
       <div className="container">
         <div className="flex lg:justify-between justify-center items-center flex-wrap gap-base pb-base">
           <div className="flex flex-row">
@@ -106,17 +143,6 @@ const FooterOne = () => {
               </div>
               <h5 className="text-white lg:text-2md text-md font-serif font-bold">
                 Twitter
-              </h5>
-            </Link>
-            <Link
-              href={FooterDataOne.pinterestLink}
-              className="inline-flex items-center group"
-            >
-              <div className="social_icon_varient__one">
-                <i className="bi bi-pinterest" />
-              </div>
-              <h5 className="text-white lg:text-2md text-md font-serif font-bold">
-                Pinterest
               </h5>
             </Link>
             <Link
