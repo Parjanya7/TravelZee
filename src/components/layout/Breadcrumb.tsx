@@ -6,7 +6,7 @@ import { Parallax } from "react-parallax";
 const Breadcrumb = ({
   pageTitle,
   page,
-  bgUrl = "/assets/images/backgrounds/breadcrumb-bg.webp",
+  bgUrl = "/assets/images/about/about-background.webp",
 }: {
   pageTitle: string;
   page: string;

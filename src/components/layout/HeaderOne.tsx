@@ -61,7 +61,7 @@ const HeaderOne = ({
               />
             </Link>
             <Link href="/" className="nav-link">
-              <span className="text-orange-400">TravelZee</span>
+              <span className="text-white ml-2">TravelZee</span>
             </Link>
           </div>
           <div className="main-menu uppercase ml-10">

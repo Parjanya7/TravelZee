@@ -7,8 +7,9 @@ import InstagramFeed from "@/components/layout/InstagramFeed";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "About US | Arid - Travel & Tourism HTML/Tailwind CSS Template",
-  description: "Welcome, Arid - Travel & Tourism HTML/Tailwind CSS Template",
+  title: "About US | TravelZee - Travel & Tourism HTML/Tailwind CSS Template",
+  description:
+    "Welcome, TravelZee - Travel & Tourism HTML/Tailwind CSS Template",
   keywords: [
     "tour",
     "travel",

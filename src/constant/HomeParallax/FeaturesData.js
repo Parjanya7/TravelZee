@@ -1,5 +1,5 @@
 const FeaturesData = {
-  Title: "Why Travel with Arid?",
+  Title: "Why Travel with TravelZee?",
   sub_title: "Why Choose Us",
   features: [
     {
