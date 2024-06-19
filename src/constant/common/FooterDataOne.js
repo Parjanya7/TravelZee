@@ -8,7 +8,7 @@ const FooterDataOne = {
   instagramLink: "/",
   facebookLink: "/",
   youtubeLink: "/",
-  copyrightText: "© TRAVELZEE 2024 | All rights reserved.",
+  copyrightText: "© TRAVELZEEWORLD 2024 | All rights reserved.",
   phone: "+44 1234 567890",
   email: "admin@travelzeeworld.com",
   address: "B603 Sumeru heights Vanivad circle, Nadiad, Gujarat, India 387001",

@@ -119,7 +119,7 @@ const FooterOne = () => {
               />
             </Link>
             <Link href="/" className="mt-7">
-              <span className="text-[#03A8E8] font-bold ml-2">TRAVELZEE</span>
+              <span className="text-white font-bold ml-2">TRAVELZEE</span>
             </Link>
           </div>
           <div className="flex align-middle justify-center lg:gap-x-9 gap-y-5 gap-x-7 flex-wrap">
@@ -398,7 +398,7 @@ const FooterOne = () => {
         </div>
         <div className="text-dark-6 flex gap-4 flex-wrap lg:justify-between justify-center gradient-border-top py-7 relative">
           <BackToTop />
-          <p className="text-[#03A8E8]">{FooterDataOne.copyrightText}.</p>
+          <p className="text-white">{FooterDataOne.copyrightText}.</p>
           <p>
             <Link href="/privacy" className="hover:text-primary-1 duration-200">
               Privacy Policy

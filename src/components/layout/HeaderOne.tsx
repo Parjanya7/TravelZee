@@ -48,8 +48,8 @@ const HeaderOne = ({
     >
       <div className="desktop-menu max-w-[1570px] mx-auto justify-between items-center xl:flex hidden">
         <div className="main-menu flex items-center">
-          <div className="flex flex-row">
-            <Link href="/" className="shrink-0 -mb-3">
+          {/* <div className="flex flex-row"> */}
+            <Link href="/" className="shrink-0 -mt-8 ml-5">
               <Image
                 alt="logo"
                 width="100"
@@ -60,16 +60,16 @@ const HeaderOne = ({
                 priority
               />
             </Link>
-            <Link href="/" className="nav-link">
-              <span className="text-[#03A8E8] font-bold ml-2">TravelZee</span>
-            </Link>
-          </div>
-          <div className="main-menu uppercase ml-10">
+            {/* <Link href="/" className="nav-link">
+              <span className="text-white font-bold ml-2">TravelZee</span>
+            </Link> */}
+          {/* </div> */}
+          <div className="main-menu uppercase">
             <ul className="flex items-center nav-list">
               {/* dropdown */}
               <li className="group/step-one">
                 <Link href="/" className="nav-link">
-                  Home
+                  TravelZeeWorld
                 </Link>
                 {/* <ul className="nav-dropdown">
                                     <li><Link href="/">Home Classic</Link></li>
