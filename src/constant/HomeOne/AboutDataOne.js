@@ -6,7 +6,7 @@ const CategoryDataOne = {
   contact: "+44 7480 784180",
   imgUrl: "/assets/images/about/about1-1.webp",
   features: [
-    "All packages and activiates are carefully picked by us.",
+    "All places and activities are carefully picked by us.",
     "We are an agency run by experts.",
     "We are trusted for your Experience and Value.",
   ],
