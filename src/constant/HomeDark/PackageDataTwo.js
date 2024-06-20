@@ -88,7 +88,7 @@ const PackageDataTwo = {
       nights: 2,
       about:
         "Embark on a captivating city break to Krakow, one of Europe's hidden gems, steeped in history and culture. This exclusive package includes round-trip flights and a memorable exploration of Krakow’s enchanting streets and monumental landmarks. Discover the historic Royal Castle at Wawel Hill, stroll through the vibrant squares of the Old Town, and experience the unique charm of the Jewish Quarter. Each corner of this ancient city offers a treasure trove of Gothic and Renaissance architecture, bustling marketplaces, and an array of cafes and restaurants to suit every taste. Perfect for history buffs and casual explorers alike, this Krakow getaway promises an unforgettable journey through the heart of Poland",
-      price: "499",
+      price: "99",
       currency: "£",
       priceCriteria: "per person",
       included: [

@@ -160,8 +160,7 @@ const AboutOne = () => {
               <ul>
                 <li className="regular-text-v1">
                   10.1. If you have any questions or concerns regarding these
-                  Terms, please contact us at admin@travelzeeworld.com or +44
-                  1234 567890.
+                  Terms, please contact us at admin@travelzeeworld.com or +44 7480 784180.
                 </li>
               </ul>
               <h3>
