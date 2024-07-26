@@ -3,7 +3,7 @@ const CategoryDataOne = {
   sub_title: "About Us",
   disc_text:
     "We craft bespoke vacation experiences that cater to your every need. Our approach is founded on deep industry knowledge and a passion for travel, ensuring that every aspect of your holiday is perfect. From luxurious retreats to adventurous expeditions, each itinerary is meticulously planned to create unforgettable moments.",
-  contact: "+44 7480 784180",
+  contact: "+44 20 4600 3689",
   imgUrl: "/assets/images/about/about1-1.webp",
   features: [
     "All places and activities are carefully picked by us.",
