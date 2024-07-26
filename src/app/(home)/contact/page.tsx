@@ -77,7 +77,7 @@ const Contact = () => {
                         href="tel:+770434501097"
                         className="hover:text-primary-1 duration-200"
                       >
-                        +44 7480 784180
+                        +44 20 4600 3689
                       </a>
                     </li>
                   </ul>
