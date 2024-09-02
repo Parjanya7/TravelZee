@@ -8,9 +8,9 @@ const FooterDataOne = {
   instagramLink: "/",
   facebookLink: "/",
   youtubeLink: "/",
-  copyrightText: "© TRAVELZEEWORLD 2024 | All rights reserved.",
+  copyrightText: "© TRAVEL ZEE WORLD 2024 | All rights reserved.",
   phone: "+44 7480 784180",
   email: "admin@travelzeeworld.com",
-  address: "B603 Sumeru heights Vanivad circle, Nadiad, Gujarat, India 387001",
+  address: "K.S.Colony, Bankers Colony Near Jesus And Mary Academy, Rahamganj, Darbhanga, Bihar, 846004",
 };
 export default FooterDataOne;

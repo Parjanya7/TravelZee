@@ -119,7 +119,7 @@ const FooterOne = () => {
               />
             </Link>
             <Link href="/" className="mt-7">
-              <span className="text-white font-bold ml-2">TRAVELZEEWORLD</span>
+              <span className="text-white font-bold ml-2">TRAVEL ZEE WORLD</span>
             </Link>
           </div>
           <div className="flex align-middle justify-center lg:gap-x-9 gap-y-5 gap-x-7 flex-wrap">

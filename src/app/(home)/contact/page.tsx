@@ -102,8 +102,7 @@ const Contact = () => {
                         href="mailto:info@supportcompany.com"
                         className="hover:text-primary-1 duration-200"
                       >
-                        B603 Sumeru heights Vanivad circle, Nadiad, Gujarat,
-                        India 387001
+                       K.S.Colony, Bankers Colony Near Jesus And Mary Academy, Rahamganj, Darbhanga, Bihar, 846004
                       </a>
                     </li>
                   </ul>

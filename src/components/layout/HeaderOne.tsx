@@ -69,7 +69,7 @@ const HeaderOne = ({
               {/* dropdown */}
               <li className="group/step-one">
                 <Link href="/" className="nav-link">
-                  TravelZeeWorld
+                  Travel Zee World
                 </Link>
                 {/* <ul className="nav-dropdown">
                                     <li><Link href="/">Home Classic</Link></li>
