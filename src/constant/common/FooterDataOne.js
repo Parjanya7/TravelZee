@@ -9,7 +9,7 @@ const FooterDataOne = {
   facebookLink: "/",
   youtubeLink: "/",
   copyrightText: "© TRAVEL ZEE WORLD 2024 | All rights reserved.",
-  phone: "+44 7480 784180",
+  phone: "+44 2046 003689",
   email: "admin@travelzeeworld.com",
   address: "K.S.Colony, Bankers Colony Near Jesus And Mary Academy, Rahamganj, Darbhanga, Bihar, 846004",
 };

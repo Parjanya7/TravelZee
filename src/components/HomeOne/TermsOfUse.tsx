@@ -59,7 +59,7 @@ const AboutOne = () => {
                   X. Instalment Payments: If you choose to pay in instalments, ensure that all payments are made by the due date. We will attempt to collect payments from the same card used for the deposit. If full payment is not received by the Balance Due Date, your booking may be canceled by the Service Provider, and cancellation fees may apply. Ensure payments are completed on time to avoid cancellation.
                 </li>
                 <li className="regular-text-v1">
-                  XI. Accepted Payment Methods: We accept payments via debit/credit cards (Visa, MasterCard, and American Express) without additional fees from us. However, your bank or card issuer may charge foreign transaction fees for non-UK registered cards. Payments are subject to security and fraud checks, and we reserve the right to reject or cancel bookings if these checks are not passed.
+                  XI. Accepted Payment Methods: We accept payments via debit/credit cards (Visa, MasterCard, and American Express) without additional fees from us. Payments are subject to security and fraud checks, and we reserve the right to reject or cancel bookings if these checks are not passed.
                 </li>
               </ul>
 
@@ -379,7 +379,7 @@ const AboutOne = () => {
                 <li className="regular-text-v1">
                   V. Liability Cap
                   <p>
-                    Our liability concerning your Package is capped at times the total cost of the Package, excluding cases of death, injury, or illness resulting from intentional or negligent actions by us or the Service Providers.
+                    Our liability concerning your Package is capped at three times the total cost of the Package, excluding cases of death, injury, or illness resulting from intentional or negligent actions by us or the Service Providers.
                   </p>
                 </li>
                 <li className="regular-text-v1">
