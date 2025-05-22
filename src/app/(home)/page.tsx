@@ -4,19 +4,13 @@ import AboutTwo from "@/components/HomeDark/AboutTwo";
 import HeroTwo from "@/components/HomeDark/HeroTwo";
 import PackageTwo from "@/components/HomeDark/PackageTwo";
 import VideoBanner from "@/components/HomeOne/VideoBannerOne";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback, ChangeEvent } from "react";
 import { useRouter } from "next/navigation";
-import React, { ChangeEvent, FormEvent } from "react";
 import axios from "axios";
 import useModalStore from "@/store/modal-items-store";
 import { ToastContainer, toast, Bounce } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-// export const metadata: Metadata = {
-//   title: 'Home Dark | Arid - Travel & Tourism HTML/Tailwind CSS Template',
-//   description: 'Welcome, Arid - Travel & Tourism HTML/Tailwind CSS Template',
-//   keywords: ['tour', 'travel', 'booking', 'rental', 'nextJs', 'tailwind', 'trip', 'beach', 'holidy', 'cruise', 'vacation' ]
-// }
 type FormData = {
   name: string;
   phoneNumber: string;
@@ -24,8 +18,7 @@ type FormData = {
 };
 
 const HomeDark = () => {
-  // State to control the visibility of the modal
-  const [formData, setFormData] = React.useState<FormData>({
+  const [formData, setFormData] = useState<FormData>({
     name: "",
     phoneNumber: "",
     email: "",
@@ -38,15 +31,40 @@ const HomeDark = () => {
     });
   };
 
-  // Function to handle form submission
+  const router = useRouter();
+  const [redirect, setRedirect] = useState("");
+
+  const { showModal, modalShown, setModalShown, setShowModal } = useModalStore();
+
+  const modalRef = useRef<HTMLDivElement>(null);
+
+  // Memoize handleClickOutside to avoid re-creating it on every render
+  const handleClickOutside = useCallback(
+    (event: MouseEvent) => {
+      if (modalRef.current && !modalRef.current.contains(event.target as Node)) {
+        setShowModal(false);
+      }
+    },
+    [setShowModal]
+  );
+
+  useEffect(() => {
+    if (showModal) {
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [showModal, handleClickOutside]);
+
   const handleProceed = () => {
     setShowModal(false);
     handleRedirect();
   };
-  const handleSubmit = async () => {
-    // e.preventDefault(); // Prevents the default form submit action
 
-    // Check if any field is empty
+  const handleSubmit = async () => {
     if (
       !formData.name.trim() ||
       !formData.phoneNumber.trim() ||
@@ -65,20 +83,17 @@ const HomeDark = () => {
       });
       return;
     }
-    let reqBody = {
+
+    const reqBody = {
       name: formData.name,
       email: formData.email,
       phone: formData.phoneNumber,
       task: "SUBSCRIBE",
     };
+
     try {
-      const response = await axios.post("/api/send-mail", reqBody);
-      setFormData({
-        name: "",
-        phoneNumber: "",
-        email: "",
-      });
-      // Optionally clear form or handle success
+      await axios.post("/api/send-mail", reqBody);
+      setFormData({ name: "", phoneNumber: "", email: "" });
       toast.success("Thank You for subscribing with us!", {
         position: "bottom-right",
         autoClose: 5000,
@@ -96,14 +111,8 @@ const HomeDark = () => {
       }, 1500);
     } catch (error) {
       console.error("Error posting data:", error);
-      // Optionally handle error
     }
   };
-  const router = useRouter();
-  const [redirect, setRedirect] = useState("");
-
-  const { showModal, modalShown, setModalShown, setShowModal } =
-    useModalStore();
 
   const handleSubscribe = (path: string) => {
     setRedirect(path);
@@ -115,30 +124,11 @@ const HomeDark = () => {
     }
   };
 
-  const handleRedirect = (path: any = false) => {
+  const handleRedirect = (path: string | false = false) => {
     if (path) {
       router.push(path);
     } else {
       router.push(redirect);
-    }
-  };
-
-  useEffect(() => {
-    if (showModal) {
-      document.addEventListener("mousedown", handleClickOutside);
-    } else {
-      document.removeEventListener("mousedown", handleClickOutside);
-    }
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [showModal]);
-
-  const modalRef = useRef<HTMLDivElement>(null);
-
-  const handleClickOutside = (event: MouseEvent) => {
-    if (modalRef.current && !modalRef.current.contains(event.target as Node)) {
-      setShowModal(false);
     }
   };
 
@@ -150,17 +140,6 @@ const HomeDark = () => {
             className="bg-white w-full max-w-[20rem] mx-auto px-base py-base"
             ref={modalRef}
           >
-            {/* <div className="text-center">
-              <Link href="/"><img src="/assets/images/logo.png" alt="logo" className="mx-auto" /></Link>
-            </div> */}
-            {/* <ul id="tabs-nav" className="login-tabs flex gap-4 pt-6">
-              <li className="basis-1/2">
-                <Link href='#' className="tab-link-button active">Sign In</Link>
-              </li>
-              <li className="basis-1/2">
-                <Link href='/signup' className="tab-link-button">Sign Up</Link>
-              </li>
-            </ul> */}
             <h4 className="text-zinc lg:text-[25px] text-2md  font-semibold leading-1.35">
               Lets subscribe before proceeding!
             </h4>
@@ -176,7 +155,7 @@ const HomeDark = () => {
             </div>
             <div className="lg:mt-5 mt-4">
               <input
-                type="text/number"
+                type="text"
                 className="input_style__primary"
                 name="phoneNumber"
                 value={formData.phoneNumber}
@@ -193,13 +172,8 @@ const HomeDark = () => {
                 placeholder="Email"
               />
             </div>
-
-            {/* <div className="lg:mt-5 mt-4 flex gap-2 items-center">
-              <input type="checkbox" id="logincheck" className="h-4 w-4 rounded-md border-primary-1 border" />
-              <label htmlFor="logincheck" className="text-dark-2">Remember me</label>
-            </div> */}
             <button
-              aria-label="login form"
+              aria-label="subscribe form"
               onClick={handleSubmit}
               className="btn_primary__v1 uppercase !w-full justify-center lg:mt-5 mt-4"
             >
@@ -222,7 +196,7 @@ const HomeDark = () => {
               </svg>
             </button>
             <button
-              aria-label="login form"
+              aria-label="proceed"
               onClick={handleProceed}
               className="btn_primary__v1 !w-full uppercase justify-center lg:mt-5 mt-4"
             >
