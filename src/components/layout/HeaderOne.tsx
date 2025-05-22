@@ -2,7 +2,8 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
+import { useCurrency } from "@/context/CurrencyContext"; // Adjust path as needed
 
 const HeaderOne = ({
   variant = "default",
@@ -11,8 +12,9 @@ const HeaderOne = ({
 }) => {
   const [toggle, setToggle] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
+    const { currency, setCurrency } = useCurrency();
 
-  async function ToggleSubMenu(e: any) {
+  const ToggleSubMenu = (e: any) => {
     try {
       if (e.target.nextSibling.classList.contains("nav-show")) {
         e.target.nextSibling.classList.remove("nav-show");
@@ -20,145 +22,63 @@ const HeaderOne = ({
         e.target.nextSibling.classList.add("nav-show");
       }
     } catch (err) {}
-  }
+  };
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.pageYOffset > 50) {
-        setIsSticky(true);
-      } else {
-        setIsSticky(false);
-      }
+      setIsSticky(window.pageYOffset > 50);
     };
-
     window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
+ const handleCurrencyChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+  //  setCurrency(e.target.value as "GBP" | "INR");
+    setCurrency(e.target.value as "GBP" | "INR");
+  };
   return (
     <header
       className={`header-style 
-           ${isSticky ? "sticky" : ""} 
-           ${variant === "transparent" ? "herder-variant-three" : ""}
-           ${variant === "transparent-V2" ? "herder-variant-two" : ""}
-           `}
+        ${isSticky ? "sticky" : ""} 
+        ${variant === "transparent" ? "herder-variant-three" : ""}
+        ${variant === "transparent-V2" ? "herder-variant-two" : ""}`}
     >
+      {/* Desktop Header */}
       <div className="desktop-menu max-w-[1570px] mx-auto justify-between items-center xl:flex hidden">
         <div className="main-menu flex items-center">
-          {/* <div className="flex flex-row"> */}
-            <Link href="/" className="shrink-0 -mt-8 ml-5">
-              <Image
-                alt="logo"
-                width="100"
-                height="70"
-                // layout="responsive"
-                className="max-w-[58px] -mb-5"
-                src="/assets/images/logo.png"
-                priority
-              />
-            </Link>
-            {/* <Link href="/" className="nav-link">
-              <span className="text-white font-bold ml-2">TravelZee</span>
-            </Link> */}
-          {/* </div> */}
+          <Link href="/" className="shrink-0 -mt-8 ml-5">
+            <Image
+              alt="logo"
+              width={100}
+              height={70}
+              className="max-w-[58px] -mb-5"
+              src="/assets/images/logo.png"
+              priority
+            />
+          </Link>
+
           <div className="main-menu uppercase">
             <ul className="flex items-center nav-list">
-              {/* dropdown */}
               <li className="group/step-one">
                 <Link href="/" className="nav-link">
                   Travel Zee World
                 </Link>
-                {/* <ul className="nav-dropdown">
-                                    <li><Link href="/">Home Classic</Link></li>
-                                    <li><Link href="/home-dark">Home Dark</Link></li>
-                                    <li><Link href="/home-parallax">Home Parallax</Link></li>
-                                </ul> */}
               </li>
-              {/* dropdown */}
               <li className="group/step-one">
-                {/* <Link href="#" className="nav-link has-dropdown">Pages</Link> */}
                 <Link href="/about" className="nav-link">
                   About Us
                 </Link>
-                {/* <ul className="nav-dropdown">
-                                    <li><Link href="/about">About Us</Link></li>
-                                    <li><Link href="/destinations">Destinations</Link></li>
-                                    <li><Link href="/destination-details">Destination Details</Link></li>
-                                    <li><Link href="/guides">Guides</Link></li>
-                                    <li><Link href="/gallary">Gallary</Link></li>
-                                    <li><Link href="/login">Sign Up / Sign In</Link></li>
-                                    <li><Link href="/booking">Booking</Link></li>
-                                </ul> */}
               </li>
-              {/* mega dropdown */}
-              {/* <li className="group/mega-dropdown">
-                                <Link href="#" className="nav-link has-dropdown">Destination</Link>
-                                <div className="nav-mega-dropdown grid grid-cols-6 gap-x-1">
-                                    <div className="col-span-4 border-r">
-                                        <Link href="/package-sidebar" className="py-2 flex items-center border-b border-stock-1 text-base text-dark-1 hover:text-primary-1 duration-200">
-                                            Browse All Destination
-                                            <div className="max-w-[20px] ml-2">
-                                                <svg className="group-hover/btn:translate-x-2 duration-200 " width={27} height={14} viewBox="0 0 27 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M0.217443 6.25H18.4827C18.6276 6.25 18.7001 6.30263 18.7001 6.40789V7.59211C18.7001 7.69737 18.6276 7.75 18.4827 7.75H0.217443C0.0724811 7.75 0 7.69737 0 7.59211V6.40789C0 6.30263 0.0724811 6.25 0.217443 6.25Z" fill="currentColor" />
-                                                    <path d="M20.7001 12.28L25.0467 7.9333C25.5601 7.41997 25.5601 6.57997 25.0467 6.06664L20.7001 1.71997" stroke="currentColor" strokeWidth="1.5" strokeMiterlimit={10} strokeLinecap="round" strokeLinejoin="round" />
-                                                </svg>
-                                            </div>
-                                        </Link>
-                                        <ul className="grid grid-cols-3 mega-dropdown-links">
-                                            <li><Link href="/package-sidebar">New York</Link></li>
-                                            <li><Link href="/package-sidebar">London</Link></li>
-                                            <li><Link href="/package-sidebar">Paris</Link></li>
-                                            <li><Link href="/package-sidebar">Dubai</Link></li>
-                                            <li><Link href="/package-sidebar">Miami</Link></li>
-                                            <li><Link href="/package-sidebar">Rome</Link></li>
-                                            <li><Link href="/package-sidebar">Seattle</Link></li>
-                                            <li><Link href="/package-sidebar">Amsterdam</Link></li>
-                                            <li><Link href="/package-sidebar">Chicago</Link></li>
-                                            <li><Link href="/package-sidebar">Las vegas</Link></li>
-                                            <li><Link href="/package-sidebar">Barcelona</Link></li>
-                                            <li><Link href="/package-sidebar">Cox's Bazar</Link></li>
-                                            <li><Link href="/package-sidebar">Istanbul</Link></li>
-                                        </ul>
-                                    </div>
-                                    <div className="col-span-2">
-                                        <Link href="/package-sidebar">
-                                            <Image
-                                                src="/assets/images/backgrounds/offer-banner.webp" alt="offer-banner w-full"
-                                                width={250}
-                                                height={230}
-                                            />
-                                        </Link>
-                                    </div>
-                                </div>
-                            </li> */}
-              {/* dropdown */}
-              {/* <li className="group/step-one">
-                                <Link href="#" className="nav-link has-dropdown">Blogs</Link>
-                                <ul className="nav-dropdown">
-                                    <li><Link href="/blog-list">Blog List</Link></li>
-                                    <li><Link href="/blog-details">Blog Details</Link></li>
-                                </ul>
-                            </li> */}
-              {/* dropdown */}
-              {/* <li className="group/step-one">
-                                <Link href="#" className="nav-link has-dropdown">Packages</Link>
-                                <ul className="nav-dropdown">
-                                    <li><Link href="/package-list">Package List</Link></li>
-                                    <li><Link href="/package-sidebar">Package List Sidebar</Link></li>
-                                    <li><Link href="/package-details">Package Details - Layout I</Link></li>
-                                    <li><Link href="/package-details-2">Package Details - Layout II</Link></li>
-                                </ul>
-                            </li> */}
-              {/* <li>
-                                <Link href="/dashboard" className="nav-link">Dashboard</Link>
-                            </li> */}
             </ul>
           </div>
         </div>
-        <div className="shrink-0">
+
+        {/* Right Side: Currency Dropdown + Contact */}
+        <div className="shrink-0 flex items-center gap-4">
+          <select className="btn_primary__v1 outlined focus:outline-none focus:ring-0 custom-select" value={currency} onChange={handleCurrencyChange}>
+                <option value="GBP" className="btn_primary__v1 outlined">GBP (£)</option>
+                {/* <option value="EUR" className="btn_primary__v1 outlined">EUR (€)</option> */}
+                <option value="INR" className="btn_primary__v1 outlined">INR (₹)</option>
+          </select>
           <Link href="/contact" className="btn_primary__v1 outlined">
             Contact Us
           </Link>
@@ -203,6 +123,7 @@ const HeaderOne = ({
               />
             </svg>
           </Link>
+
           <button
             className={`hamburger ${toggle ? "hum-active" : ""}`}
             id="hamburger"
@@ -213,89 +134,36 @@ const HeaderOne = ({
             <span />
           </button>
         </div>
+
         <div
           id="mobile-menu"
           className={`mobil-menu ${toggle ? "mm-active" : ""}`}
         >
           <ul>
-            {/* <li className="group/step-one">
-                            <Link href="#" className="nav-link nav-link-sm has-dropdown " onClick={ToggleSubMenu}>Home</Link>
-                            <ul className="nav-dropdown-sm">
-                                <li><Link href="/">Home Classic</Link></li>
-                                <li><Link href="/home-dark">Home Dark</Link></li>
-                                <li><Link href="/home-parallax">Home Parallax</Link></li>
-                            </ul>
-                        </li> */}
             <li className="group/step-one">
-              <Link
-                href="/"
-                className="nav-link nav-link-sm"
-                onClick={ToggleSubMenu}
-              >
+              <Link href="/" className="nav-link nav-link-sm" onClick={ToggleSubMenu}>
                 Home
               </Link>
-              {/* <ul className="nav-dropdown-sm">
-                                <li><Link href="/about">About Us</Link></li>
-                                <li><Link href="/destinations">Destinations</Link></li>
-                                <li><Link href="/destination-details">Destination Details</Link></li>
-                                <li><Link href="/guides">Guides</Link></li>
-                                <li><Link href="/gallary">Gallary</Link></li>
-                                <li><Link href="/login">Sign Up / Sign In</Link></li>
-                                <li><Link href="/booking">Booking</Link></li>
-                            </ul> */}
             </li>
             <li className="group/step-one">
-              <Link
-                href="/about"
-                className="nav-link nav-link-sm "
-                onClick={ToggleSubMenu}
-              >
+              <Link href="/about" className="nav-link nav-link-sm" onClick={ToggleSubMenu}>
                 About Us
               </Link>
-              {/* <ul className="nav-dropdown-sm">
-                                <li><Link href="/package-sidebar">New York</Link></li>
-                                <li><Link href="/package-sidebar">London</Link></li>
-                                <li><Link href="/package-sidebar">Paris</Link></li>
-                                <li><Link href="/package-sidebar">Dubai</Link></li>
-                                <li><Link href="/package-sidebar">Miami</Link></li>
-                                <li><Link href="/package-sidebar">Rome</Link></li>
-                                <li><Link href="/package-sidebar">Seattle</Link></li>
-                                <li><Link href="/package-sidebar">Amsterdam</Link></li>
-                                <li><Link href="/package-sidebar">Chicago</Link></li>
-                                <li><Link href="/package-sidebar">Las vegas</Link></li>
-                                <li><Link href="/package-sidebar">Barcelona</Link></li>
-                                <li><Link href="/package-sidebar">Cox's Bazar</Link></li>
-                                <li><Link href="/package-sidebar">Istanbul</Link></li>
-                            </ul>*/}
             </li>
             <li className="group/step-one">
-              <Link
-                href="/contact"
-                className="nav-link nav-link-sm "
-                onClick={ToggleSubMenu}
-              >
+              <Link href="/contact" className="nav-link nav-link-sm" onClick={ToggleSubMenu}>
                 Contact Us
               </Link>
             </li>
-            {/* <li className="group/step-one">
-                            <Link href="#" className="nav-link nav-link-sm has-dropdown " onClick={ToggleSubMenu}>Blogs</Link>
-                            <ul className="nav-dropdown-sm">
-                                <li><Link href="/blog-list">Blog List</Link></li>
-                                <li><Link href="/blog-details">Blog Details</Link></li>
-                            </ul>
-                        </li>
-                        <li className="group/step-one">
-                            <Link href="#" className="nav-link nav-link-sm has-dropdown " onClick={ToggleSubMenu}>Packages</Link>
-                            <ul className="nav-dropdown-sm">
-                                <li><Link href="/package-list">Package List</Link></li>
-                                <li><Link href="/package-sidebar">Package List Sidebar</Link></li>
-                                <li><Link href="/package-details">Package Details - Layout I</Link></li>
-                                <li><Link href="/package-details-2">Package Details - Layout II</Link></li>
-                            </ul>
-                        </li>
-                        <li className="group/step-one">
-                            <Link href="/dashboard" className="nav-link nav-link-sm">Dashboard</Link>
-                        </li> */}
+            <li className="group/step-one">
+              {/* Currency dropdown for mobile */}
+         
+                <select className="bg-transparent text-white m-2 px-1 border-none focus:outline-none focus:ring-0" value={currency} onChange={handleCurrencyChange}>
+                <option value="GBP" className="bg-black text-white">GBP (£)</option>
+                {/* <option value="EUR" className="btn_primary__v1 outlined">EUR (€)</option> */}
+                <option value="INR" className="bg-black text-white">INR (₹)</option>
+          </select>
+            </li>
           </ul>
         </div>
       </div>

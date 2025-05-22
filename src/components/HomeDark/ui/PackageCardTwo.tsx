@@ -1,34 +1,37 @@
 import Image from "next/image";
-import Link from "next/link";
-import { MouseEventHandler } from "react";
-import { SwiperSlide } from "swiper/react";
+import React from "react";
+import { useCurrency } from "@/context/CurrencyContext";
+
+interface PackageCardTwoProps {
+  id: string;
+  img: string;
+  price: number; 
+  discountedPrice?: number;
+  destination: string;
+  disc: string;
+  handleSubscribe: (id: string) => void;
+}
 
 const PackageCardTwo = ({
   id,
   img,
   price,
-  title,
   discountedPrice,
-  disc,
   destination,
-  currency,
+  disc,
   handleSubscribe,
-}: {
-  id: string;
-  img: string;
-  price: string;
-  title?: string;
-  discountedPrice?: string;
-  destination: string;
-  disc: string;
-  currency: string;
-  handleSubscribe: any;
-}) => {
+}: PackageCardTwoProps) => {
+  const { currencySymbol, convertPrice } = useCurrency();
+
+  const convertedPrice = convertPrice(price);
+  const convertedDiscountedPrice = discountedPrice
+    ? convertPrice(discountedPrice)
+    : null;
+
   const exploreHandler = (id: string): void => {
     handleSubscribe(`/package-details?id=${id}`);
-    // href={`/package-details?id=${id}`}
-    // router.push();
   };
+
   return (
     <div>
       <div className="overflow-hidden relative">
@@ -47,39 +50,38 @@ const PackageCardTwo = ({
           </span>
         )}
       </div>
+
       <div className="bg-white text-dark-1 px-6 pt-5 pb-base">
         <div className="flex justify-between items-center flex-wrap space-y-2">
           <h3 className="text-lg leading-1.5 font-semibold">{destination}</h3>
-          <div className="shrink-0 font-medium text-primary-1 text-[22px] flex items-center ">
-            {!discountedPrice && (
+          <div className="shrink-0 font-medium text-primary-1 text-[22px] flex items-center">
+            {discountedPrice ? (
+              <>
+                <span>
+                  {currencySymbol}
+                  {convertedDiscountedPrice}
+                </span>
+                <del className="text-sm text-dark-4 ml-[6px]">
+                  {currencySymbol}
+                  {convertedPrice}
+                </del>
+              </>
+            ) : (
               <span>
-                {currency}
-                {price}
+                {currencySymbol}
+                {convertedPrice}
               </span>
-            )}
-            {discountedPrice && (
-              <span>
-                {currency}
-                {discountedPrice}
-              </span>
-            )}
-            {discountedPrice && (
-              <del className="text-sm text-dark-4 ml-[6px]">
-                {currency}
-                {price}
-              </del>
             )}
           </div>
         </div>
+
         <p className="text-base leading-1.9 mt-3">{disc}</p>
-        <button
-          onClick={() => exploreHandler(id)}
-          className="explore-btn group"
-        >
+
+        <button onClick={() => exploreHandler(id)} className="explore-btn group">
           <span>Explore Now</span>
           <div className="max-w-[24px]">
             <svg
-              className="ml-2 group-hover:translate-x-2 duration-200 "
+              className="ml-2 group-hover:translate-x-2 duration-200"
               width={27}
               height={14}
               viewBox="0 0 27 14"

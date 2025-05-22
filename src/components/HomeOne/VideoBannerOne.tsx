@@ -1,5 +1,5 @@
 "use client";
-import "node_modules/react-modal-video/css/modal-video.css";
+//import "node_modules/react-modal-video/css/modal-video.css";
 import { Parallax } from "react-parallax";
 import BannerData from "@/constant/common/BannerData";
 import { useState } from "react";

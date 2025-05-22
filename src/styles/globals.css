@@ -918,3 +918,12 @@ th {
 .details-btn {
   @apply text-sm px-3 bg-[#219FFF] text-white py-1;
 }
+.custom-select {
+  appearance: none;        
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  background: url("data:image/svg+xml;charset=US-ASCII,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='5'%3E%3Cpath fill='%23e8604c' d='M0 0l4 5 4-5z'/%3E%3C/svg%3E") no-repeat right 0.75rem center;
+  background-size: 8px 5px; /* Small arrow */
+  padding-right: 2.5rem;    /* Space for arrow */
+}

@@ -59,7 +59,7 @@ const PackageDataTwo = {
       destination: "Antalya Turkey",
       title: "Luxury All-Inclusive Antalya Getaway with Flights",
       nights: 7,
-      price: "499",
+      price: 499,
       currency: "£",
       about:
         "Dive into the stunning beauty of Antalya, a Mediterranean paradise known for its dazzling blue seas, golden beaches, and lush green landscapes. This all-inclusive package offers round-trip flights to Turkey’s famous coastal city, where history and modernity blend seamlessly. Explore ancient ruins like Hadrian’s Gate and the remnants of Roman civilization, or indulge in the sun-kissed beaches of Lara and Konyaaltı. Whether you're looking for adventure in the Taurus Mountains or relaxation in the city’s luxury resorts and spas, Antalya provides the perfect escape with its captivating charm and warm Turkish hospitality. Ideal for families and couples alike, this getaway will leave you enriched and refreshed.",
@@ -88,7 +88,7 @@ const PackageDataTwo = {
       nights: 2,
       about:
         "Embark on a captivating city break to Krakow, one of Europe's hidden gems, steeped in history and culture. This exclusive package includes round-trip flights and a memorable exploration of Krakow’s enchanting streets and monumental landmarks. Discover the historic Royal Castle at Wawel Hill, stroll through the vibrant squares of the Old Town, and experience the unique charm of the Jewish Quarter. Each corner of this ancient city offers a treasure trove of Gothic and Renaissance architecture, bustling marketplaces, and an array of cafes and restaurants to suit every taste. Perfect for history buffs and casual explorers alike, this Krakow getaway promises an unforgettable journey through the heart of Poland",
-      price: "99",
+      price: 99,
       currency: "£",
       priceCriteria: "per person",
       included: [
@@ -113,7 +113,7 @@ const PackageDataTwo = {
       nights: 14,
       about:
         "Escape to the sun-drenched shores of Hurghada, Egypt's premier beach destination on the Red Sea Coast. This enticing package includes round-trip flights and a chance to unwind on some of the world’s most beautiful beaches. Hurghada offers an unparalleled opportunity for water sports enthusiasts, with its world-renowned coral reefs and vibrant marine life making it a top spot for snorkeling and scuba diving. Beyond the beach, explore bustling bazaars and sample traditional Egyptian cuisine or take a day trip to the magnificent desert landscape. Perfect for travelers seeking both relaxation and adventure, Hurghada is an ideal getaway for everyone looking to experience the magic of Egypt’s coastal beauty.",
-      price: "799",
+      price: 799,
       currency: "£",
       priceCriteria: "per person",
       included: [
@@ -143,7 +143,7 @@ const PackageDataTwo = {
       nights: 2,
       about:
         "Experience the enchanting allure of Costa Brava, a stunning stretch of Spain’s northeastern coast known for its rugged cliffs, hidden coves, and vibrant seaside towns. This exclusive package includes round-trip flights and immerses you in the region's rich artistic heritage and breathtaking natural beauty. Explore the picturesque beaches of Lloret de Mar and Cadaqués, wander through medieval towns like Pals and Tossa de Mar, or visit Salvador Dalí's surrealistic castle in Púbol. Indulge in the local cuisine, featuring fresh seafood and famous Spanish wines. Whether you seek tranquil moments by the azure waters or cultural discoveries, the Costa Brava offers a perfect blend of relaxation and adventure for a memorable Spanish getaway.",
-      price: "99",
+      price: 99,
       currency: "£",
       priceCriteria: "per person",
       included: [

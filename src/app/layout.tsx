@@ -1,3 +1,4 @@
+import { CurrencyProvider } from "@/context/CurrencyContext";
 import "@/styles/globals.css";
 import { Jost, Playfair_Display, Satisfy } from "next/font/google";
 
@@ -33,7 +34,7 @@ export default function RootLayout({
       lang="en"
       className={`${jost.variable} ${playfairDisplay.variable} ${satisfy.variable}`}
     >
-      <body>{children}</body>
+      <body>  <CurrencyProvider>{children}</CurrencyProvider></body>
     </html>
   );
 }
