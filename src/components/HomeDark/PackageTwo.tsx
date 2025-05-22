@@ -61,7 +61,7 @@ const PackageTwo = ({ handleSubscribe }: { handleSubscribe: any }) => {
           {PackageDataTwo?.packages?.map((pack) => (
             <SwiperSlide className="swiper-slide package-slide" key={pack.id}>
               <PackageCardTwo
-                currency={pack.currency}
+                // currency={pack.currency}
                 id={pack.id}
                 price={pack.price}
                 // discountedPrice={pack.discountedPrice}
